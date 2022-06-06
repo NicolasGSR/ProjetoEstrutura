@@ -33,7 +33,7 @@ void InserirInicio(Lista* lista, Aluno aluno){
 	cout<<"Aluno "<<node->aluno.nome<<", adicionado com sucesso ao inicio da lista.\n";
 	lista->size++;
 	}else{
-		cout<<"Lista não criada.\n";
+		cout<<"Lista nÃ£o criada.\n";
 	}
 }
 
@@ -69,7 +69,7 @@ void RemoverInicio(Lista* lista){
 		lista->size--;
 		
 	}else{
-		cout<<"Lista não criada.\n";
+		cout<<"Lista nÃ£o criada.\n";
 	}
 	
 }
@@ -103,6 +103,27 @@ void BuscarMatricula(Lista* lista){
 			}
 		}
 		cout<<"Aluno "<<aux->aluno.nome<<" de matricula "<<mat<<" se encontra na posicao ["<<pos<<"]\n";
+		int choice;
+		cout<<"\n-=-=-=-=-MENU-=-=-=-=-\n";
+		cout<<"Digite[1] para modificar as notas do aluno\n";
+		cout<<"Digite outra tecla para retornar\n";
+		cin>>choice;
+		if(choice == 1){
+			cout<<"Digite a nota n1:\n";
+			cin>>aux->aluno.nota1;
+			cout<<"Digite a nota n2:\n";
+			cin>>aux->aluno.nota2;
+			cout<<"Novas notas de "<<aux->aluno.nome<<":\n";
+			cout<<"N1: "<<aux->aluno.nota1<<"\n";
+			cout<<"N2: "<<aux->aluno.nota2<<"\n";
+			aux->aluno.media = (aux->aluno.nota1*0.4)+(aux->aluno.nota2*0.6);
+			cout<<"Media final: "<<aux->aluno.media<<"\n";
+			if(aux->aluno.media >= 6){
+				cout<<"Situacao: aprovado\n";
+			}else{
+				cout<<"Situacao: reprovado\n";
+			}
+		}
 		
 	} else{
 		cout<<"Lista nao criada\n";
@@ -272,6 +293,27 @@ void BuscarPorAluno(Lista* lista, int pos){
 				aux = aux->next;
 				i++;
 			}cout<<"Aluno "<<aux->aluno.nome<<" se encontra na posicao ["<<pos<<"]\n";
+		int choice;
+		cout<<"\n-=-=-=-=-MENU-=-=-=-=-\n";
+		cout<<"Digite[1] para modificar as notas do aluno\n";
+		cout<<"Digite outra tecla para retornar\n";
+		cin>>choice;
+		if(choice == 1){
+			cout<<"Digite a nota n1:\n";
+			cin>>aux->aluno.nota1;
+			cout<<"Digite a nota n2:\n";
+			cin>>aux->aluno.nota2;
+			cout<<"Novas notas de "<<aux->aluno.nome<<":\n";
+			cout<<"N1: "<<aux->aluno.nota1<<"\n";
+			cout<<"N2: "<<aux->aluno.nota2<<"\n";
+			aux->aluno.media = (aux->aluno.nota1*0.4)+(aux->aluno.nota2*0.6);
+			cout<<"Media final: "<<aux->aluno.media<<"\n";
+			if(aux->aluno.media >= 6){
+				cout<<"Situacao: aprovado\n";
+			}else{
+				cout<<"Situacao: reprovado\n";
+			}
+		}
 	}
 }
 
@@ -284,7 +326,7 @@ void ImprimirMedia(Lista* lista, Node* node){
 		notaTot = notaTot+aux->aluno.media;
 		aux = aux->next;
 	}
-	cout<<"Media final da turma é: "<<notaTot/lista->size<<"\n";
+	cout<<"Media final da turma Ã©: "<<notaTot/lista->size<<"\n";
 }
 
 void MenuBusca(Lista* lista){
